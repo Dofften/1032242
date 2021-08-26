@@ -828,219 +828,258 @@ def analysis(environ):
         def CATvsFinal1():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.CAT_Marks, sample_data.Final_Marks)
-            ax.set_title('CAT Marks vs Final Marks')
-            ax.set_xlabel('CAT')
-            ax.set_ylabel('Final Marks')
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.CAT_Marks, sample_data.Final_Marks)
+                ax.set_title('CAT Marks vs Final Marks')
+                ax.set_xlabel('CAT')
+                ax.set_ylabel('Final Marks')
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def CATvsFinal2():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.CAT_Marks, sample_data.Final_Marks)
-            x = np.linspace(8,30,100)
-            y = (100/30)*x
-            ax.plot(x, y, label='y=mx')
-            ax.set_title('CAT Marks vs Final Marks')
-            ax.set_xlabel('CAT')
-            ax.set_ylabel('Final Marks')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.CAT_Marks, sample_data.Final_Marks)
+                x = np.linspace(8,30,100)
+                y = (100/30)*x
+                ax.plot(x, y, label='y=mx')
+                ax.set_title('CAT Marks vs Final Marks')
+                ax.set_xlabel('CAT')
+                ax.set_ylabel('Final Marks')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def CATvsFinal3():
             fig = plt.Figure()
             ax = fig.subplots()
-            sample_data_male = sample_data[sample_data['Gender'] == 'male']
-            sample_data_female = sample_data[sample_data['Gender'] == 'female']
-            sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
-            ax.scatter(sample_data_male.CAT_Marks, sample_data_male.Final_Marks, label='male')
-            ax.scatter(sample_data_female.CAT_Marks, sample_data_female.Final_Marks, label='female')
-            ax.scatter(sample_data_nonbinary.CAT_Marks, sample_data_nonbinary.Final_Marks, label='others')
-            ax.set_title('CAT Marks vs Final Marks')
-            ax.set_xlabel('CAT')
-            ax.set_ylabel('Final Marks')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                sample_data_male = sample_data[sample_data['Gender'] == 'male']
+                sample_data_female = sample_data[sample_data['Gender'] == 'female']
+                sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
+                ax.scatter(sample_data_male.CAT_Marks, sample_data_male.Final_Marks, label='male')
+                ax.scatter(sample_data_female.CAT_Marks, sample_data_female.Final_Marks, label='female')
+                ax.scatter(sample_data_nonbinary.CAT_Marks, sample_data_nonbinary.Final_Marks, label='others')
+                ax.set_title('CAT Marks vs Final Marks')
+                ax.set_xlabel('CAT')
+                ax.set_ylabel('Final Marks')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         ########################################################################################################
         ################################CAT VS GPA GRAPHS#######################################################
         def CATvsGPA1():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.CAT_Marks, sample_data.GPA)
-            ax.set_title('CAT Marks vs GPA')
-            ax.set_xlabel('CAT')
-            ax.set_ylabel('GPA')
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.CAT_Marks, sample_data.GPA)
+                ax.set_title('CAT Marks vs GPA')
+                ax.set_xlabel('CAT')
+                ax.set_ylabel('GPA')
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def CATvsGPA2():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.CAT_Marks, sample_data.GPA)
-            x = np.linspace(8,30,100)
-            y = (4/30)*x
-            ax.plot(x, y, label='y=mx')
-            ax.set_title('CAT Marks vs GPA')
-            ax.set_xlabel('CAT')
-            ax.set_ylabel('GPA')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.CAT_Marks, sample_data.GPA)
+                x = np.linspace(8,30,100)
+                y = (4/30)*x
+                ax.plot(x, y, label='y=mx')
+                ax.set_title('CAT Marks vs GPA')
+                ax.set_xlabel('CAT')
+                ax.set_ylabel('GPA')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def CATvsGPA3():
             fig = plt.Figure()
             ax = fig.subplots()
-            sample_data_male = sample_data[sample_data['Gender'] == 'male']
-            sample_data_female = sample_data[sample_data['Gender'] == 'female']
-            sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
-            ax.scatter(sample_data_male.CAT_Marks, sample_data_male.GPA, label='male')
-            ax.scatter(sample_data_female.CAT_Marks, sample_data_female.GPA, label='female')
-            ax.scatter(sample_data_nonbinary.CAT_Marks, sample_data_nonbinary.GPA, label='others')
-            ax.set_title('CAT Marks vs GPA')
-            ax.set_xlabel('CAT')
-            ax.set_ylabel('GPA')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                sample_data_male = sample_data[sample_data['Gender'] == 'male']
+                sample_data_female = sample_data[sample_data['Gender'] == 'female']
+                sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
+                ax.scatter(sample_data_male.CAT_Marks, sample_data_male.GPA, label='male')
+                ax.scatter(sample_data_female.CAT_Marks, sample_data_female.GPA, label='female')
+                ax.scatter(sample_data_nonbinary.CAT_Marks, sample_data_nonbinary.GPA, label='others')
+                ax.set_title('CAT Marks vs GPA')
+                ax.set_xlabel('CAT')
+                ax.set_ylabel('GPA')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         ##########################################################################################
         ###################ATTENDANCE VS FINAL GRAPHS#############################################
         def AttendancevsFinal1():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.Attendance, sample_data.Final_Marks)
-            ax.set_title('Attendance vs Final_Marks')
-            ax.set_xlabel('Attendance 1:100%')
-            ax.set_ylabel('Final Marks')
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.Attendance, sample_data.Final_Marks)
+                ax.set_title('Attendance vs Final_Marks')
+                ax.set_xlabel('Attendance 1:100%')
+                ax.set_ylabel('Final Marks')
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def AttendancevsFinal2():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.Attendance, sample_data.Final_Marks)
-            x = np.linspace(0.2,1,100)
-            y = (100/1)*x
-            ax.plot(x, y, label='y=mx')
-            ax.set_title('Attendance vs Final Marks')
-            ax.set_xlabel('Attendance 1:100%')
-            ax.set_ylabel('Final Marks')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.Attendance, sample_data.Final_Marks)
+                x = np.linspace(0.2,1,100)
+                y = (100/1)*x
+                ax.plot(x, y, label='y=mx')
+                ax.set_title('Attendance vs Final Marks')
+                ax.set_xlabel('Attendance 1:100%')
+                ax.set_ylabel('Final Marks')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def AttendancevsFinal3():
             fig = plt.Figure()
             ax = fig.subplots()
-            sample_data_male = sample_data[sample_data['Gender'] == 'male']
-            sample_data_female = sample_data[sample_data['Gender'] == 'female']
-            sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
-            ax.scatter(sample_data_male.Attendance, sample_data_male.Final_Marks, label='male')
-            ax.scatter(sample_data_female.Attendance, sample_data_female.Final_Marks, label='female')
-            ax.scatter(sample_data_nonbinary.Attendance, sample_data_nonbinary.Final_Marks, label='others')
-            ax.set_title('Attendance vs Final Marks')
-            ax.set_xlabel('Attendance 1:100%')
-            ax.set_ylabel('Final Marks')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                sample_data_male = sample_data[sample_data['Gender'] == 'male']
+                sample_data_female = sample_data[sample_data['Gender'] == 'female']
+                sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
+                ax.scatter(sample_data_male.Attendance, sample_data_male.Final_Marks, label='male')
+                ax.scatter(sample_data_female.Attendance, sample_data_female.Final_Marks, label='female')
+                ax.scatter(sample_data_nonbinary.Attendance, sample_data_nonbinary.Final_Marks, label='others')
+                ax.set_title('Attendance vs Final Marks')
+                ax.set_xlabel('Attendance 1:100%')
+                ax.set_ylabel('Final Marks')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         #####################################################################################
         ##########################FINAL VS GPA GRAPHS########################################
         def FinalvsGPA1():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.Final_Marks, sample_data.GPA)
-            ax.set_title('Final Marks vs GPA')
-            ax.set_xlabel('Final Marks')
-            ax.set_ylabel('GPA')
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.Final_Marks, sample_data.GPA)
+                ax.set_title('Final Marks vs GPA')
+                ax.set_xlabel('Final Marks')
+                ax.set_ylabel('GPA')
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def FinalvsGPA2():
             fig = plt.Figure()
             ax = fig.subplots()
-            ax.scatter(sample_data.Final_Marks, sample_data.GPA)
-            x = np.linspace(25,100,100)
-            y = (4/100)*x
-            ax.plot(x, y, label='y=mx')
-            ax.set_title('Final Marks vs GPA')
-            ax.set_xlabel('Final Marks')
-            ax.set_ylabel('GPA')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                ax.scatter(sample_data.Final_Marks, sample_data.GPA)
+                x = np.linspace(25,100,100)
+                y = (4/100)*x
+                ax.plot(x, y, label='y=mx')
+                ax.set_title('Final Marks vs GPA')
+                ax.set_xlabel('Final Marks')
+                ax.set_ylabel('GPA')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         
         def FinalvsGPA3():
             fig = plt.Figure()
             ax = fig.subplots()
-            sample_data_male = sample_data[sample_data['Gender'] == 'male']
-            sample_data_female = sample_data[sample_data['Gender'] == 'female']
-            sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
-            ax.scatter(sample_data_male.Final_Marks, sample_data_male.GPA, label='male')
-            ax.scatter(sample_data_female.Final_Marks, sample_data_female.GPA, label='female')
-            ax.scatter(sample_data_nonbinary.Final_Marks, sample_data_nonbinary.GPA, label='others')
-            ax.set_title('Final Marks vs GPA')
-            ax.set_xlabel('Final Marks')
-            ax.set_ylabel('GPA')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                sample_data_male = sample_data[sample_data['Gender'] == 'male']
+                sample_data_female = sample_data[sample_data['Gender'] == 'female']
+                sample_data_nonbinary = sample_data[sample_data['Gender'] == 'non-binary']
+                ax.scatter(sample_data_male.Final_Marks, sample_data_male.GPA, label='male')
+                ax.scatter(sample_data_female.Final_Marks, sample_data_female.GPA, label='female')
+                ax.scatter(sample_data_nonbinary.Final_Marks, sample_data_nonbinary.GPA, label='others')
+                ax.set_title('Final Marks vs GPA')
+                ax.set_xlabel('Final Marks')
+                ax.set_ylabel('GPA')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         ###########################################################################################################
         ##########################FINAL COMPARISON##################################
         def OnlinevsPhysical():
             fig = plt.Figure()
             ax = fig.subplots()
-            sample_data_online = sample_data[sample_data['Mode_of_Study'] == 'Online']
-            sample_data_physical = sample_data[sample_data['Mode_of_Study'] == 'Physical']
-            ax.scatter(sample_data_online.Final_Marks, sample_data_online.Final_Marks, label='online')
-            ax.scatter(sample_data_physical.Final_Marks, sample_data_physical.Final_Marks, label='physical')
-            ax.set_title('Online exam vs Physical exam')
-            ax.set_xlabel('Online')
-            ax.set_ylabel('Physical')
-            ax.legend()
-            buf = BytesIO()
-            fig.savefig(buf, format="png")
-            data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            image =  f"<img src='data:image/png;base64,{data}'/>"
-            return image
+            try:
+                sample_data_online = sample_data[sample_data['Mode_of_Study'] == 'Online']
+                sample_data_physical = sample_data[sample_data['Mode_of_Study'] == 'Physical']
+                ax.scatter(sample_data_online.Final_Marks, sample_data_online.Final_Marks, label='online')
+                ax.scatter(sample_data_physical.Final_Marks, sample_data_physical.Final_Marks, label='physical')
+                ax.set_title('Online exam vs Physical exam')
+                ax.set_xlabel('Online')
+                ax.set_ylabel('Physical')
+                ax.legend()
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                data = base64.b64encode(buf.getbuffer()).decode("ascii")
+                image =  f"<img src='data:image/png;base64,{data}'/>"
+                return image
+            except:
+                return 'you have an invalid attribute in your dataframe'
         #################################################################################
 
         with open('assets/Analysis_report.html','r',encoding='utf-8') as f:
