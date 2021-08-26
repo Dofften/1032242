@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Login</title>
+	<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/static/login.css">
+</head>
+<body>
+    <div class="loader">
+        <figure>
+        <img src="/assets/images/among-us-7.gif" alt="Loading..." />
+        <figcaption>Please wait...</figcaption>
+        </figure>
+    </div>
+<div class="center">
+    <img src="/assets/images/Logo-final(green).png">
+    <h1>Log in</h1>
+    <div id="error" class="JSWarning"></div>
+    <form method="POST" id="form">
+        <div class="txt_field">
+            <input class="input" id="email" type="text" name="email">
+            <span></span>
+            <label>Email</label>
+        </div>
+        <div class="txt_field">
+            <input type="text" id="password" name="password">
+            <span></span>
+            <label>password</label>
+        </div>
+        <div class="pass">Forgot password? <a href="/lecturer/forgot_password" class="signup_link">Click here</a></div>
+        <input type="submit" value="Sign in">
+        <div class="signup_link">
+            Not a member? <a href="/lecturer/signup">Sign Up</a>
+        </div>
+    </form>
+</div>
+<script src="/assets/static/index.js"></script>
+</body>
+</html>

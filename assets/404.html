@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found</title>
+	<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/static/404.css">
+</head>
+<body>
+<div class="container">
+  <!--  <img src="404(img).png" srcset="404(img).png 1000w, 404(img-phone).png 900w">   -->
+  <img src= "/assets/images/404(comp).png" srcset="/assets/images/404(comp).png 1000w, /assets/images/404(phone).png 900w"> 
+    <div id="lostxt" class="among"><p>Wrong way!!!</p></div>
+    <div id="location" class="among"></div>
+    <a href="/" id="link" class="among">Click here to go back home</a>
+</div>
+    <script>
+        document.getElementById("location").innerHTML =
+        window.location.pathname + "/ is a deadend";
+    </script>
+</body>
+</html>

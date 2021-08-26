@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sign Up</title>
+	<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/static/login.css">
+</head>
+<body>
+    <div class="loader">
+        <figure>
+        <img src="/assets/images/among-us-7.gif" alt="Loading..." />
+        <figcaption>Please wait...</figcaption>
+        </figure>
+    </div>
+<div class="center">
+    <img src="/assets/images/Logo-final(green).png">
+    <h1>Sign up</h1>
+    <div id="error" class="JSWarning"></div>
+    <form method="POST" id="form">
+        <div class="txt_field">
+            <input class="input" type="text" name="first_name">
+            <span></span>
+            <label>First Name</label>
+        </div>
+        <div class="txt_field">
+            <input class="input" type="text" name="last_name">
+            <span></span>
+            <label>Last Name</label>
+        </div>
+        <div class="txt_field">
+            <input class="input" id="email" type="text" name="email">
+            <span></span>
+            <label>Email</label>
+        </div>
+        <div class="txt_field">
+            <input type="text" name="password" id="password">
+            <span></span>
+            <label>password</label>
+        </div>
+        <input type="submit" value="Sign up">
+    </form>
+</div>
+<script src="/assets/static/index.js"></script>
+</body>
+</html>

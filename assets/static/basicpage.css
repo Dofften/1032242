@@ -1,0 +1,261 @@
+
+
+*{
+    padding: 0;
+    margin: 0%;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader figure img {
+    width: 100px;
+}
+
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+.analysis img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+body{
+    font-family: poppins;
+    display: flex;
+    flex-direction: column;
+}
+nav{
+    background: #7F0525;
+    height: 80px;
+    width: 100%;
+}
+label.logo{
+    padding: 0 100px;
+}
+nav label a img{
+    max-height: 70px;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.navbtn:hover{
+    background: #b10634;
+    transition: .5s;
+}
+.checkbtn{
+    color: white;
+    max-height: 2px;
+    cursor: pointer;
+    float: right;
+    display: none;
+}
+#check{
+    display: none;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even){
+    background-color: #f2f2f2
+}
+  
+th {
+    background-color: #7F0525;
+    color: white;
+}
+.info {
+    text-align: center;
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+    margin-bottom: 15px;
+    padding: 4px 12px;
+}
+.warning {
+    text-align: center;
+    background-color: #ffc6c2;
+    border-left: 6px solid #f44336;
+    margin-bottom: 15px;
+    padding: 4px 12px;
+}
+.file_upload {
+    display: inline-block;
+    padding: 6px 12px;
+    padding-bottom: 30px;
+}
+/*analysis plots styling*/
+.row {
+    max-width: 1200px;
+    margin: auto;
+    overflow: auto;
+} 
+  /* Create three equal columns that sits next to each other */
+.column {
+    margin: 5px;
+    float: left;
+    width: 390px;
+}
+.column img{
+    width: 100%;
+    height: auto;
+}
+.footer{
+    left: 0;
+    bottom: 0;
+    width:100%;
+    background-color: #24262b;
+    padding: 70px 0;
+    margin-top: auto;
+}
+.footer-container{
+    max-width: 1170px;
+    background-color: #24262b;
+    margin: auto;
+}
+.footer-ul{
+    list-style: none;
+}
+.footer-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+}
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    background-color: rgb(255, 254, 254);
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+.footer-col ul li{
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    color: white;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    padding-left: 10px;
+}
+.footer-col .social-links{
+    display: inline-block;
+    margin-right: 10px;
+}
+.footer-col .social-links a img{
+    height: 40px;
+    padding-right: 15px;
+    transition: 0.3s ease;
+}
+.footer-col .social-links a img:hover{
+    height: 50px;
+}
+.copyright{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #181818;
+    padding: 8px 100px;
+    text-align: center;
+    color: white;
+}
+@media (max-width: 991px){
+    nav{
+        height: 50px;
+        z-index: 1;
+        position: fixed;
+    }
+    nav label.logo{
+        padding:0px 50px;
+    }
+    nav label a img{
+    max-height: 45px;
+    }
+    .checkbtn{
+        display: block;
+    }
+    nav ul{
+        width: 100%;
+        height: 100vh;
+        background-color:#b10634;
+        position: fixed;
+        top: 50px;
+        left: -100%;
+        text-align: center;
+        transition: 0.4s ease;
+    }
+    nav ul li{
+        display: block;
+        margin:60px 0px;
+        line-height: 20px;
+    }
+    #check:checked ~ ul{
+        left: 0;
+        z-index: 1;
+    }
+    th, td {
+        font-size: 5px;
+    }
+    th, td .dataframe{
+        font-size: 3.5px;
+    }
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
