@@ -1,5 +1,5 @@
-# from wsgiref.simple_server import make_server
-#from waitress import serve
+#from wsgiref.simple_server import make_server
+from waitress import serve
 from urls import url_patterns
 from models import create_database
 
@@ -36,13 +36,13 @@ app = WebApp()
 create_database()
 
 
-#if __name__ == '__main__':
-#    try:
-#        print('serving at http://127.0.0.1:8000\nPress"ctrl+c" to stop serving')
-#        myserver = serve(app, port=8000, threads=12)
-#        print("Server has been stopped")
-#        with open("temp.txt", "r+") as logged_in:
-#            logged_in.truncate(0)
-#    except:
-#       print("an error occured please check your server setup")
+if __name__ == '__main__':
+    try:
+        print('serving at http://127.0.0.1:8000\nPress"ctrl+c" to stop serving')
+        myserver = serve(app, port=8000, threads=12)
+        print("Server has been stopped")
+        with open("temp.txt", "r+") as logged_in:
+            logged_in.truncate(0)
+    except:
+       print("an error occured please check your server setup")
 
