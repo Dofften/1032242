@@ -47,6 +47,13 @@ def create_database():
         ("1","Frederick","Omondi","frankomondi311@gmail.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
         ("2","Dofften","Dofften","dofften@dofften.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
         ("3","Omondi","Kiilu","omondi@kiilu.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
+        ("4","kamau","kamau","kamau@kamau.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
+        ("5","aketch","aketch","aketch@aketch.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
+        ("6","mirugi","mirugi","mirugi@mirugi.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
+        ("7","kibet","kibet","kibet@kibet.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
+        ("8","kioko","kioko","kioko@kioko.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
+        ("9","kinyua","kinyua","kinyua@kinyua.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
+        ("10","nandasaba","nandasaba","nandasaba@nandasaba.com",f"{hashlib.sha256(default_pass).hexdigest()}"),
     ]
 
     cur.executemany(students_sql_query, val)
