@@ -292,9 +292,9 @@ def student_signup(request):
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
-        sql_query = "INSERT OR IGNORE INTO Students (StudentID,first_name,last_name,email,password) VALUES (?, ?, ?, ?, ?)"
+        sql_query = "INSERT INTO Students (first_name,last_name,email,password) VALUES (?, ?, ?, ?)"
         val = [
-                ("1",first_name,last_name,email,hashlib.sha256(password).hexdigest())
+                (first_name,last_name,email,hashlib.sha256(password).hexdigest())
             ]
         cur.executemany(sql_query, val)
         conn.commit()
@@ -332,9 +332,9 @@ def lecturer_signup(request):
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
-        sql_query = "INSERT OR IGNORE INTO Lecturers (LecturerID,first_name,last_name,email,password) VALUES (?, ?, ?, ?, ?)"
+        sql_query = "INSERT INTO Lecturers (first_name,last_name,email,password) VALUES (?, ?, ?, ?)"
         val = [
-                ("1",first_name,last_name,email,hashlib.sha256(password).hexdigest())
+                (first_name,last_name,email,hashlib.sha256(password).hexdigest())
             ]
         cur.executemany(sql_query, val)
         conn.commit()
@@ -372,9 +372,9 @@ def admin_signup(request):
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
-        sql_query = "INSERT OR IGNORE INTO Admins (AdminID,first_name,last_name,email,password) VALUES (?, ?, ?, ?, ?)"
+        sql_query = "INSERT INTO Admins (first_name,last_name,email,password) VALUES (?, ?, ?, ?)"
         val = [
-                ("1",first_name,last_name,email,hashlib.sha256(password).hexdigest())
+                (first_name,last_name,email,hashlib.sha256(password).hexdigest())
             ]
         cur.executemany(sql_query, val)
         conn.commit()

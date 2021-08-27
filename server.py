@@ -44,5 +44,5 @@ if __name__ == '__main__':
         with open("temp.txt", "r+") as logged_in:
             logged_in.truncate(0)
     except:
-       print("an error occured please check your server setup")
+       print("An error occured please check your server configuration")
 

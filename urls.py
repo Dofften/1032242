@@ -39,3 +39,4 @@ url_patterns = [
     ('/assets/static/404.css', notfoundcss),
     ('/assets/static/index.js', indexjs),
 ]
+

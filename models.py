@@ -8,7 +8,7 @@ cur = conn.cursor()
 def create_database():
     StudentsTB='''
     CREATE TABLE IF NOT EXISTS Students(
-        StudentID INTEGER AUTO_INCREMENT PRIMARY KEY,
+        StudentID INTEGER PRIMARY KEY,
         first_name VARCHAR(20),
         last_name VARCHAR(20),
         email VARCHAR(20),
@@ -17,7 +17,7 @@ def create_database():
     '''
     LecturersTB='''
     CREATE TABLE IF NOT EXISTS Lecturers(
-        LecturerID INTEGER AUTO_INCREMENT PRIMARY KEY,
+        LecturerID INTEGER PRIMARY KEY,
         first_name VARCHAR(20),
         last_name VARCHAR(20),
         email VARCHAR(20),
@@ -26,7 +26,7 @@ def create_database():
     '''
     AdminsTB='''
     CREATE TABLE IF NOT EXISTS Admins(
-        AdminID INTEGER AUTO_INCREMENT PRIMARY KEY,
+        AdminID INTEGER PRIMARY KEY,
         first_name VARCHAR(20),
         last_name VARCHAR(20),
         email VARCHAR(20),
