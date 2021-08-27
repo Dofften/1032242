@@ -177,11 +177,11 @@ def student_login(request):
         data = parse_qs(request_body)
 
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
-        SQL = f"SELECT * FROM Students WHERE email ='{email}' AND password ='{password}'"
+        SQL = f"SELECT * FROM Students WHERE email ='{email}' AND password ='{hashlib.sha256(password).hexdigest()}'"
         cur.execute(SQL)
 
         if cur.fetchone():
@@ -212,12 +212,12 @@ def lecturer_login(request):
         request_body = request['wsgi.input'].read(request_body_size)
         data = parse_qs(request_body)
 
-        email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        email = data.get(b"email")[0].decode("utf-8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
-        SQL = f"SELECT * FROM Lecturers WHERE email ='{email}' AND password ='{password}'"
+        SQL = f"SELECT * FROM Lecturers WHERE email ='{email}' AND password ='{hashlib.sha256(password).hexdigest()}'"
         cur.execute(SQL)
 
         if cur.fetchone():
@@ -249,11 +249,11 @@ def admin_login(request):
         data = parse_qs(request_body)
 
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
-        SQL = f"SELECT * FROM Admins WHERE email ='{email}' AND password ='{password}'"
+        SQL = f"SELECT * FROM Admins WHERE email ='{email}' AND password ='{hashlib.sha256(password).hexdigest()}'"
         cur.execute(SQL)
 
         if cur.fetchone():
@@ -288,13 +288,13 @@ def student_signup(request):
         first_name = data.get(b"first_name")[0].decode("utf8")
         last_name = data.get(b"last_name")[0].decode("utf8")
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
         sql_query = "INSERT OR IGNORE INTO Students (StudentID,first_name,last_name,email,password) VALUES (?, ?, ?, ?, ?)"
         val = [
-                ("1",first_name,last_name,email,password)
+                ("1",first_name,last_name,email,hashlib.sha256(password).hexdigest())
             ]
         cur.executemany(sql_query, val)
         conn.commit()
@@ -328,13 +328,13 @@ def lecturer_signup(request):
         first_name = data.get(b"first_name")[0].decode("utf8")
         last_name = data.get(b"last_name")[0].decode("utf8")
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
         sql_query = "INSERT OR IGNORE INTO Lecturers (LecturerID,first_name,last_name,email,password) VALUES (?, ?, ?, ?, ?)"
         val = [
-                ("1",first_name,last_name,email,password)
+                ("1",first_name,last_name,email,hashlib.sha256(password).hexdigest())
             ]
         cur.executemany(sql_query, val)
         conn.commit()
@@ -368,13 +368,13 @@ def admin_signup(request):
         first_name = data.get(b"first_name")[0].decode("utf8")
         last_name = data.get(b"last_name")[0].decode("utf8")
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
         sql_query = "INSERT OR IGNORE INTO Admins (AdminID,first_name,last_name,email,password) VALUES (?, ?, ?, ?, ?)"
         val = [
-                ("1",first_name,last_name,email,password)
+                ("1",first_name,last_name,email,hashlib.sha256(password).hexdigest())
             ]
         cur.executemany(sql_query, val)
         conn.commit()
@@ -1197,7 +1197,7 @@ def admin_forgot_password(request):
         data = parse_qs(request_body)
 
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
@@ -1205,7 +1205,7 @@ def admin_forgot_password(request):
         cur.execute(SQL)
 
         if cur.fetchone():
-            cur.execute(f"UPDATE Admins SET password = '{password}' WHERE email = '{email}'")
+            cur.execute(f"UPDATE Admins SET password = '{hashlib.sha256(password).hexdigest()}' WHERE email = '{email}'")
             conn.commit()
             cur.close()
             conn.close()
@@ -1237,7 +1237,7 @@ def lecturer_forgot_password(request):
         data = parse_qs(request_body)
 
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
@@ -1245,7 +1245,7 @@ def lecturer_forgot_password(request):
         cur.execute(SQL)
 
         if cur.fetchone():
-            cur.execute(f"UPDATE Lecturers SET password = '{password}' WHERE email = '{email}'")
+            cur.execute(f"UPDATE Lecturers SET password = '{hashlib.sha256(password).hexdigest()}' WHERE email = '{email}'")
             conn.commit()
             cur.close()
             conn.close()
@@ -1277,7 +1277,7 @@ def student_forgot_password(request):
         data = parse_qs(request_body)
 
         email = data.get(b"email")[0].decode("utf8")
-        password = data.get(b"password")[0].decode("utf8")
+        password = data.get(b"password")[0]
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
@@ -1285,7 +1285,7 @@ def student_forgot_password(request):
         cur.execute(SQL)
 
         if cur.fetchone():
-            cur.execute(f"UPDATE Students SET password = '{password}' WHERE email = '{email}'")
+            cur.execute(f"UPDATE Students SET password = '{hashlib.sha256(password).hexdigest()}' WHERE email = '{email}'")
             conn.commit()
             cur.close()
             conn.close()
