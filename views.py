@@ -74,10 +74,13 @@ def student_home(environ):
             request_body_size = 0
         request_body = environ['wsgi.input'].read(request_body_size)
         data = parse_qs(request_body)
-
-        name = data.get(b"student_name")[0].decode("utf8")
-        email = data.get(b"email")[0].decode("utf8")
-        admission_number = data.get(b"admission_number")[0].decode("utf8")
+        try:
+            admission_number = data.get(b"admission_number")[0].decode("utf8")
+            name = data.get(b"student_name")[0].decode("utf8")
+            email = data.get(b"email")[0].decode("utf8")
+        except:
+            return b'<h1>Please check the credentials you have given, If error persists please contact your lecturer</h1>'
+        
         
         conn = sqlite3.connect('database.db')
         cur = conn.cursor()
@@ -1184,6 +1187,9 @@ def gif(environ):
     with open('assets/images/among-us-7.gif', 'rb') as f:
         data = f.read()
     return data
+def documentation(environ):
+    with open('documents/LOAS USER MANUAL.pdf') as f:
+        return f
 
 
 

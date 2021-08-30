@@ -89,9 +89,10 @@ input[type="submit"]{
 <h1 style="padding:100px;padding-bottom: 5px;position: relative;text-align: center;">Welcome!</h1>
 <h2 style="padding-top: 5px;padding-bottom: 5px;position: relative;text-align: center;">Sign in to exam</h2>
 <div class="center">
-    <form method="POST" id="form" onsubmit="return ValidateForm(form)">
+    <div id="error" class="JSWarning"></div>
+    <form method="POST" id="form">
         <div class="txt_field">
-            <input class="input" type="text" name="student_name">
+            <input class="input" type="text" id="student_name" name="student_name">
             <span></span>
             <label>Name</label>
         </div>
